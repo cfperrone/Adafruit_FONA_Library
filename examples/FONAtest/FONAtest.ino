@@ -84,6 +84,7 @@ void printMenu(void) {
    Serial.println(F("[l] Query GSMLOC (GPRS)"));
    Serial.println(F("[w] Read webpage (GPRS)"));
    Serial.println(F("[S] create Serial passthru tunnel"));
+   Serial.println(F("[x] Answer incoming call"));
    Serial.println(F("-------------------------------------"));
    Serial.println(F(""));
 
@@ -342,6 +343,15 @@ void loop() {
     case 'h': {
        // hang up!
       if (! fona.hangUp()) {
+        Serial.println(F("Failed"));
+      } else {
+        Serial.println(F("OK!"));
+      }
+      break;
+    }
+    case 'x': {
+      // Answer incoming call
+      if (!fona.answerCall()) {
         Serial.println(F("Failed"));
       } else {
         Serial.println(F("OK!"));
