@@ -1,17 +1,17 @@
-/*************************************************** 
+/***************************************************
   This is a library for our Adafruit FONA Cellular Module
 
-  Designed specifically to work with the Adafruit FONA 
+  Designed specifically to work with the Adafruit FONA
   ----> http://www.adafruit.com/products/1946
   ----> http://www.adafruit.com/products/1963
 
-  These displays use TTL Serial to communicate, 2 pins are required to 
+  These displays use TTL Serial to communicate, 2 pins are required to
   interface
-  Adafruit invests time and resources providing this open source code, 
-  please support Adafruit and open-source hardware by purchasing 
+  Adafruit invests time and resources providing this open source code,
+  please support Adafruit and open-source hardware by purchasing
   products from Adafruit!
 
-  Written by Limor Fried/Ladyada for Adafruit Industries.  
+  Written by Limor Fried/Ladyada for Adafruit Industries.
   BSD license, all text above must be included in any redistribution
  ****************************************************/
 
@@ -31,10 +31,10 @@
 #define FONA_STTONE_DIALTONE 1
 #define FONA_STTONE_BUSY 2
 #define FONA_STTONE_CONGESTION 3
-#define FONA_STTONE_PATHACK 4 
+#define FONA_STTONE_PATHACK 4
 #define FONA_STTONE_DROPPED 5
-#define FONA_STTONE_ERROR 6  
-#define FONA_STTONE_CALLWAIT 7 
+#define FONA_STTONE_ERROR 6
+#define FONA_STTONE_CALLWAIT 7
 #define FONA_STTONE_RINGING 8
 #define FONA_STTONE_BEEP 16
 #define FONA_STTONE_POSTONE 17
@@ -95,7 +95,7 @@ class Adafruit_FONA : public Stream {
   uint8_t GPRSstate(void);
   boolean getGSMLoc(uint16_t *replycode, char *buff, uint16_t maxlen);
 
-  // HTTP 
+  // HTTP
   boolean HTTP_GET_start(char *url, uint16_t *status, uint16_t *datalen);
   boolean HTTP_GET_end(void);
 
@@ -106,7 +106,7 @@ class Adafruit_FONA : public Stream {
   boolean callPhone(char *phonenum);
   boolean hangUp(void);
 
- private: 
+ private:
   int8_t _rstpin;
 
   char replybuffer[255];
@@ -128,11 +128,11 @@ class Adafruit_FONA : public Stream {
   boolean sendCheckReply(const __FlashStringHelper *prefix, int32_t suffix, int32_t suffix2, const __FlashStringHelper *reply, uint16_t timeout = FONA_DEFAULT_TIMEOUT_MS);
 
 
-  boolean parseReply(const __FlashStringHelper *toreply, 
+  boolean parseReply(const __FlashStringHelper *toreply,
 				  uint16_t *v, char divider  = ',', uint8_t index=0);
 
-  boolean sendParseReply(const __FlashStringHelper *tosend, 
-			 const __FlashStringHelper *toreply, 
+  boolean sendParseReply(const __FlashStringHelper *tosend,
+			 const __FlashStringHelper *toreply,
 			 uint16_t *v, char divider = ',', uint8_t index=0);
 
 #if ARDUINO >= 100
